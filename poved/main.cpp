@@ -6,9 +6,12 @@ int main(){
 
     system("chcp 1251 > nul");
 
-    //strategy();
-    //command();
-    //builder();
+    strategy();
+    std::cout << std::endl;
+    command();
+    std::cout << std::endl;
+    builder();
+    std::cout << std::endl;
 
-
+    system("pause");
 }

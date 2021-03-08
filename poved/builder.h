@@ -1,26 +1,31 @@
 #pragma once
 
 class Builder {
-private:
-	std::string nameKP;
-	struct COORD{
-		float latitude; //широта
-		float longitude; // долгота
-	}coord;
-	float fine; //штраф
+protected:
+	std::string  Product;
+	
 public:
-
+	std::string getResult() {
+		return Product;
+	}
+	virtual void toDo() = 0;
 };
-class ConcreteBuilderA : Builder{
+class ConcreteBuilderA : public Builder{
 private:
-
 public:
-
+	
+	void toDo()override {
+		Product = "Порядковый номер; имя; координаты; время штрафа "
+			"или строка «незачёт СУ» для обязательных КП";
+	}
 };
-class ConcreteBuilderB : Builder {
+class ConcreteBuilderB : public Builder {
 private:
-
 public:
+	
+	void toDo()override {
+		Product = "Подсчёт суммарного штрафа по всем необязательным КП.";
+	}
 
 };
 
@@ -30,14 +35,28 @@ private:
 	Builder* b;
 public:
 	Director(Builder* builder) : b(builder)	{}
-	void cobstruct() {
-
+	void construct() {
+		b->toDo();
+	}
+	void changeBuilder(Builder* builder)  {
+		b = builder;
 	}
 };
 
 
-
-//не реализовал т.к. не понял суть задачи
 void builder() {
 
+	Builder* b = new ConcreteBuilderA();
+	Director* d = new Director(b);
+	d->construct();
+	std::cout<<b->getResult()<<std::endl;
+
+	Builder* b2 = new ConcreteBuilderB();
+	d->changeBuilder(b2);
+	d->construct();
+	std::cout << b2->getResult() << std::endl;
+
+	delete b;
+	delete  b2;
+	delete d;
 }
