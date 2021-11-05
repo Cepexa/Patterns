@@ -1,28 +1,28 @@
 #pragma once
 #include <vector>
 
-//получатель запроса (Receiver)
+//РїРѕР»СѓС‡Р°С‚РµР»СЊ Р·Р°РїСЂРѕСЃР° (Receiver)
 class WordProcessor {
 private:
 
 public:
     void copy_idx1_idx2() {
-        std::cout << "скопировать в буффер обмена символы с позиции idx1 до позиции idx2" << std::endl;
+        std::cout << "СЃРєРѕРїРёСЂРѕРІР°С‚СЊ РІ Р±СѓС„С„РµСЂ РѕР±РјРµРЅР° СЃРёРјРІРѕР»С‹ СЃ РїРѕР·РёС†РёРё idx1 РґРѕ РїРѕР·РёС†РёРё idx2" << std::endl;
     }
     void paste_idx() {
-        std::cout << "вставить содержимое буффера обмена в позицию idx" << std::endl;
+        std::cout << "РІСЃС‚Р°РІРёС‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ Р±СѓС„С„РµСЂР° РѕР±РјРµРЅР° РІ РїРѕР·РёС†РёСЋ idx" << std::endl;
     }
     void insert_string_idx() {
-        std::cout << "вставить строку “string” в позицию idx" << std::endl;
+        std::cout << "РІСЃС‚Р°РІРёС‚СЊ СЃС‚СЂРѕРєСѓ вЂњstringвЂќ РІ РїРѕР·РёС†РёСЋ idx" << std::endl;
     }
     void delete_idx1_idx2() {
-        std::cout << "удалить все символы с позиции idx1 до позиции idx2" << std::endl;
+        std::cout << "СѓРґР°Р»РёС‚СЊ РІСЃРµ СЃРёРјРІРѕР»С‹ СЃ РїРѕР·РёС†РёРё idx1 РґРѕ РїРѕР·РёС†РёРё idx2" << std::endl;
     }
     void undo() {
-        std::cout << "отменить предыдущую команду" << std::endl;
+        std::cout << "РѕС‚РјРµРЅРёС‚СЊ РїСЂРµРґС‹РґСѓС‰СѓСЋ РєРѕРјР°РЅРґСѓ" << std::endl;
     }
     void redo() {
-        std::cout << "выполнить отмененную команду заново" << std::endl;
+        std::cout << "РІС‹РїРѕР»РЅРёС‚СЊ РѕС‚РјРµРЅРµРЅРЅСѓСЋ РєРѕРјР°РЅРґСѓ Р·Р°РЅРѕРІРѕ" << std::endl;
     }
 };
 
@@ -102,7 +102,7 @@ public:
 int command()
 {
     WordProcessor wp;
-    // Имитация действий
+    // РРјРёС‚Р°С†РёСЏ РґРµР№СЃС‚РІРёР№
     std::vector<Command*> v;
 
     v.push_back(new CopyWordCommand(&wp));
